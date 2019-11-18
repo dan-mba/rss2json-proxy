@@ -1,56 +1,34 @@
 // server.js
-// where your node app starts
+require('dotenv').config();
 
 // init project
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
-const parseString = require('xml2js').parseString;
+const get = require('./routes/get');
+
 const app = express();
 
 /* Configure CORS whitelist from .env */
-if(process.env.WHITELIST.indexOf(",")!== -1) {
-  var whitelist = process.env.WHITELIST.split(",");
-}
-else {
-  var whitelist = [process.env.WHITELIST];
+let whitelist = [process.env.WHITELIST];
+if (process.env.WHITELIST.indexOf(',') !== -1) {
+  whitelist = process.env.WHITELIST.split(',');
 }
 
-var corsOption = {
-  origin: function (origin, callback) {
+const corsOption = {
+  origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'))
+      callback(new Error('Not allowed by CORS'));
     }
-  }
-}
+  },
+};
 
-app.use(cors());
+app.use(cors(corsOption));
 
-app.get('/', function(request, response) {
-  if(!request.query.rss) {
-    response.json({error: "No rss parameter specified"});
-  }
-  else {
-    console.log(request.headers.origin);
-    axios.get(request.query.rss).
-    then(data => {
-      parseString(data.data, {explicitArray: false}, function(err, result){
-        if(err) {
-         console.log(err); 
-        } else {
-          response.json(result);
-        }
-      });
-    }).
-    catch(error => {
-      console.log(error);
-    });
-  }
-});
+get.init(app);
 
 // listen for requests
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
+const listener = app.listen(process.env.PORT || 3000, () => {
+  console.log(`Your app is listening on port ${listener.address().port}`);
 });
