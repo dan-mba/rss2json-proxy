@@ -2,11 +2,13 @@
 require('dotenv').config();
 
 // init project
+const compression = require('compression');
 const express = require('express');
 const cors = require('cors');
 const get = require('./routes/get');
 
 const app = express();
+app.use(compression());
 
 /* Configure CORS whitelist from .env */
 let whitelist = [process.env.WHITELIST];
