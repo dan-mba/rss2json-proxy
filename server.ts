@@ -1,9 +1,11 @@
 // server.js
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import compression from 'compression';
 import express from 'express';
 import cors, {CorsOptions} from 'cors';
-const get = require('./routes/get');
+import get from './routes/get';
+
+dotenv.config();
 
 const app = express();
 app.use(compression());
@@ -19,6 +21,7 @@ else if (process.env.WHITELIST!.indexOf(',') !== -1) {
 else {
   whitelist = [process.env.WHITELIST!];
 }
+console.log(`whitelist = ${whitelist}`);
 
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
@@ -32,7 +35,7 @@ const corsOption: CorsOptions = {
 
 app.use(cors(corsOption));
 
-get.init(app);
+get(app);
 
 // listen for requests
 const listener = app.listen(process.env.PORT || 3000, () => {

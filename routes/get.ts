@@ -2,7 +2,7 @@ import axios from 'axios';
 import { parseString } from 'xml2js';
 import {Express} from 'express';
 
-exports.init = (app: Express) => {
+function get(app: Express) {
   app.get('/', (request, response) => {
     if (!request.query.rss) {
       response.json({ error: 'No rss parameter specified' });
@@ -23,3 +23,5 @@ exports.init = (app: Express) => {
     }
   });
 };
+
+export default get;
