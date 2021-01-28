@@ -1,12 +1,13 @@
-const axios = require('axios');
-const { parseString } = require('xml2js');
+import axios from 'axios';
+import { parseString } from 'xml2js';
+import {Express} from 'express';
 
-exports.init = (app) => {
+function get(app: Express) {
   app.get('/', (request, response) => {
     if (!request.query.rss) {
       response.json({ error: 'No rss parameter specified' });
     } else {
-      axios.get(request.query.rss)
+      axios.get(request.query.rss as string)
         .then((data) => {
           parseString(data.data, { explicitArray: false }, (err, result) => {
             if (err) {
@@ -18,7 +19,10 @@ exports.init = (app) => {
         })
         .catch((error) => {
           console.log(error);
+          response.json({error})
         });
     }
   });
 };
+
+export default get;
