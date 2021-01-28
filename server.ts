@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(compression());
 
-/* Configure CORS whitelist from .env */
+// Configure CORS whitelist from .env
 let whitelist: Array<string>;
 if (!process.env.WHITELIST) {
   whitelist = [""];
@@ -21,7 +21,6 @@ else if (process.env.WHITELIST!.indexOf(',') !== -1) {
 else {
   whitelist = [process.env.WHITELIST!];
 }
-console.log(`whitelist = ${whitelist}`);
 
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
@@ -35,6 +34,7 @@ const corsOption: CorsOptions = {
 
 app.use(cors(corsOption));
 
+// Initialize get route
 get(app);
 
 // listen for requests

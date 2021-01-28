@@ -19,6 +19,7 @@ function get(app: Express) {
         })
         .catch((error) => {
           console.log(error);
+          response.json({error})
         });
     }
   });
