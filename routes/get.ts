@@ -1,25 +1,29 @@
 import axios from 'axios';
 import { parseString } from 'xml2js';
-import {Express} from 'express';
+import { FastifyInstance } from 'fastify';
 
-function get(app: Express) {
-  app.get('/', (request, response) => {
+async function get (app: FastifyInstance) {
+  app.get<{
+    Querystring: {
+      rss: string
+    }
+  }>('/', async (request, response) => {
     if (!request.query.rss) {
-      response.json({ error: 'No rss parameter specified' });
+      response.send({ error: 'No rss parameter specified' });
     } else {
-      axios.get(request.query.rss as string)
+      axios.get(request.query.rss)
         .then((data) => {
           parseString(data.data, { explicitArray: false }, (err, result) => {
             if (err) {
               console.log(err);
             } else {
-              response.json(result);
+              response.send(result);
             }
           });
         })
         .catch((error) => {
           console.log(error);
-          response.json({error})
+          response.send({error})
         });
     }
   });

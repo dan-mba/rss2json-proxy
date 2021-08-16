@@ -1,14 +1,14 @@
 // server.js
 import dotenv from 'dotenv';
-import compression from 'compression';
-import express from 'express';
-import cors, {CorsOptions} from 'cors';
+import fastifyServer from 'fastify';
+import compress from 'fastify-compress';
+import cors, {FastifyCorsOptions} from 'fastify-cors';
 import get from './routes/get';
 
 dotenv.config();
 
-const app = express();
-app.use(compression());
+const fastify = fastifyServer();
+fastify.register(compress);
 
 // Configure CORS whitelist from .env
 let whitelist: Array<string>;
@@ -22,29 +22,20 @@ else {
   whitelist = [process.env.WHITELIST!];
 }
 
-const corsOption: CorsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+const corsOption: FastifyCorsOptions = {
+  origin: whitelist,
 };
 
-app.use(cors(corsOption));
+fastify.register(cors, corsOption);
 
 // Initialize get route
-get(app);
+fastify.register(get);
 
 // listen for requests
-const listener = app.listen(process.env.PORT || 3000, () => {
-  const address = listener.address();
-  let port = null;
-  if(typeof address === "string") {
-    port = address;
-  } else {
-    port = address?.port;
+fastify.listen(process.env.PORT || 3000, (err, address) => {
+  if (err) {
+    fastify.log.error(err);
+    process.exit(1);
   }
-  console.log(`Your app is listening on port ${port}`);
+  console.log(`Your fastify is listening on port ${address}`);
 });
