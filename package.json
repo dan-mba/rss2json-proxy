@@ -8,7 +8,7 @@
     "start": "tsc && node build/server.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "dotenv": "^10.0.0",
     "fastify": "^3.20.2",
     "fastify-compress": "^3.6.0",
