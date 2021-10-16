@@ -13,7 +13,7 @@ async function get (app: FastifyInstance) {
     } else {
       axios.get(request.query.rss)
         .then((data) => {
-          parseString(data.data, { explicitArray: false }, (err, result) => {
+          parseString(data.data as string, { explicitArray: false }, (err, result) => {
             if (err) {
               console.log(err);
             } else {
