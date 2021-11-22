@@ -13,7 +13,7 @@
     "fastify": "^3.24.0",
     "fastify-compress": "^3.6.1",
     "fastify-cors": "^6.0.2",
-    "typescript": "^4.4.4",
+    "typescript": "^4.5.2",
     "xml2js": "^0.4.23"
   },
   "engines": {
