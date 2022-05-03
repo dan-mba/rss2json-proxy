@@ -1,8 +1,8 @@
 // server.js
 import dotenv from 'dotenv';
 import fastifyServer from 'fastify';
-import compress from 'fastify-compress';
-import cors, {FastifyCorsOptions} from 'fastify-cors';
+import compress from '@fastify/compress';
+import cors, {FastifyCorsOptions} from '@fastify/cors';
 import get from './routes/get';
 
 dotenv.config();
