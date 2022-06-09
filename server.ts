@@ -31,8 +31,10 @@ fastify.register(cors, corsOption);
 // Initialize get route
 fastify.register(get);
 
+const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+
 // listen for requests
-fastify.listen(process.env.PORT || 3000, (err, address) => {
+fastify.listen({port: port}, (err, address) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
