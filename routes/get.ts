@@ -7,7 +7,7 @@ async function get (app: FastifyInstance) {
     Querystring: {
       rss: string
     }
-  }>('/', async (request, response) => {
+  }>('/', (request, response) => {
     if (!request.query.rss) {
       response.send({ error: 'No rss parameter specified' });
     } else {
