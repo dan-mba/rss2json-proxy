@@ -1,32 +1,30 @@
-import axios from 'axios';
-import { parseString } from 'xml2js';
-import { FastifyInstance } from 'fastify';
+import { fetch } from 'undici';
+import { parseStringPromise } from 'xml2js';
+import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
-async function get (app: FastifyInstance) {
-  app.get<{
+type JSONResponse = {data: string};
+
+function get (fastify: FastifyInstance, opts: FastifyPluginOptions, done: Function) {
+  fastify.get<{
     Querystring: {
       rss: string
     }
-  }>('/', (request, response) => {
+  }>('/', async function (request) {
     if (!request.query.rss) {
-      response.send({ error: 'No rss parameter specified' });
+      return { error: 'No rss parameter specified' };
     } else {
-      axios.get(request.query.rss)
-        .then((data) => {
-          parseString(data.data as string, { explicitArray: false }, (err, result) => {
-            if (err) {
-              console.log(err);
-            } else {
-              response.send(result);
-            }
-          });
-        })
-        .catch((error) => {
+      try {
+        const res = await fetch(request.query.rss);
+        const data = await res.text();
+        const rss = await parseStringPromise(data, { explicitArray: false })
+        return rss;
+      } catch (error) {
           console.log(error);
-          response.send({error})
-        });
+          return {error};
+      }
     }
   });
+  done();
 };
 
 export default get;
