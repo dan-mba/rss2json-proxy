@@ -10,9 +10,9 @@
   "dependencies": {
     "@fastify/compress": "^6.1.1",
     "@fastify/cors": "^8.1.0",
-    "dotenv": "^16.0.2",
-    "fastify": "^4.6.0",
-    "typescript": "^4.8.3",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.7.0",
+    "typescript": "^4.8.4",
     "undici": "^5.10.0",
     "xml2js": "^0.4.23"
   },
@@ -30,9 +30,9 @@
   ],
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.8.0",
     "@types/xml2js": "^0.4.11",
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0"
   }
