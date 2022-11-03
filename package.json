@@ -13,7 +13,7 @@
     "dotenv": "^16.0.3",
     "fastify": "^4.9.2",
     "typescript": "^4.8.4",
-    "undici": "^5.11.0",
+    "undici": "^5.12.0",
     "xml2js": "^0.4.23"
   },
   "engines": {
