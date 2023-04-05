@@ -11,7 +11,7 @@
     "@fastify/compress": "^6.2.0",
     "@fastify/cors": "^8.2.1",
     "dotenv": "^16.0.3",
-    "fastify": "^4.14.1",
+    "fastify": "^4.15.0",
     "typescript": "^5.0.2",
     "undici": "^5.21.0",
     "xml2js": "^0.4.23"
