@@ -29,7 +29,7 @@
     "express"
   ],
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/node16": "^1.0.4",
     "@types/node": "^20.1.2",
     "@types/xml2js": "^0.4.11",
     "eslint": "^8.40.0",
