@@ -33,8 +33,6 @@ fastify.register(get);
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
-console.log("after port")
-
 // listen for requests
 fastify.listen({port: port}, (err) => {
   if (err) {
