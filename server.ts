@@ -2,12 +2,12 @@
 import dotenv from 'dotenv';
 import fastifyServer from 'fastify';
 import compress from '@fastify/compress';
-import cors, {FastifyCorsOptions} from '@fastify/cors';
+import cors from '@fastify/cors';
 import get from './routes/get';
 
 dotenv.config();
 
-const fastify = fastifyServer();
+const fastify = fastifyServer({logger: true});
 fastify.register(compress);
 
 // Configure CORS whitelist from .env
@@ -15,14 +15,14 @@ let whitelist: Array<string>;
 if (!process.env.WHITELIST) {
   whitelist = [""];
 }
-else if (process.env.WHITELIST!.indexOf(',') !== -1) {
-  whitelist = process.env.WHITELIST!.split(',');
+else if (process.env.WHITELIST.indexOf(',') !== -1) {
+  whitelist = process.env.WHITELIST.split(',');
 }
 else {
-  whitelist = [process.env.WHITELIST!];
+  whitelist = [process.env.WHITELIST];
 }
 
-const corsOption: FastifyCorsOptions = {
+const corsOption = {
   origin: whitelist,
 };
 
@@ -33,11 +33,12 @@ fastify.register(get);
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
+console.log("after port")
+
 // listen for requests
-fastify.listen({port: port}, (err, address) => {
+fastify.listen({port: port}, (err) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
   }
-  console.log(`Your fastify is listening on port ${address}`);
 });
