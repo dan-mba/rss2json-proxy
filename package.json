@@ -12,7 +12,7 @@
     "@fastify/compress": "^6.4.0",
     "@fastify/cors": "^8.4.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.23.2",
+    "fastify": "^4.24.2",
     "typescript": "^5.2.2",
     "undici": "^5.26.3",
     "xml2js": "^0.6.2"
