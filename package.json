@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fastify/compress": "^6.5.0",
-    "@fastify/cors": "^8.4.2",
+    "@fastify/cors": "^8.5.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.25.1",
     "typescript": "^5.3.3",
