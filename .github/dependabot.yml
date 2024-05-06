@@ -11,7 +11,9 @@ updates:
       lint:
         patterns:
           - "eslint*"
-          - "@typescript-eslint*"
+          - "@eslint*"
+          - "typescript-eslint"
+          - "globals"
 
   - package-ecosystem: "github-actions"
     directory: "/"
