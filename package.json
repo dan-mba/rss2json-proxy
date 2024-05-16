@@ -35,7 +35,7 @@
     "@types/node": "^20.12.11",
     "@types/xml2js": "^0.4.14",
     "eslint": "^8.57.0",
-    "globals": "^15.1.0",
-    "typescript-eslint": "^7.8.0"
+    "globals": "^15.2.0",
+    "typescript-eslint": "^7.9.0"
   }
 }
