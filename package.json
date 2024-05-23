@@ -36,6 +36,6 @@
     "@types/xml2js": "^0.4.14",
     "eslint": "^8.57.0",
     "globals": "^15.3.0",
-    "typescript-eslint": "^7.9.0"
+    "typescript-eslint": "^7.10.0"
   }
 }
