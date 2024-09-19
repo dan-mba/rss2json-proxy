@@ -9,7 +9,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@fastify/compress": "^7.0.3",
+    "@fastify/compress": "^8.0.0",
     "@fastify/cors": "^9.0.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
