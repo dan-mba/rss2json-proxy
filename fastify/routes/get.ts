@@ -1,6 +1,5 @@
-import { fetch } from 'undici';
 import { parseStringPromise } from 'xml2js';
-import { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
 function get (fastify: FastifyInstance, opts: FastifyPluginOptions, done: (err?: Error) => void) {
   fastify.get<{
