@@ -8,8 +8,29 @@
   "headers": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "Origin",
+          "value": "https://dan-mba.github.io"
+        }
+      ],
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://dan-mba.github.io,http://localhost:8080" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://dan-mba.github.io" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "Origin",
+          "value": "http://localhost:8080"
+        }
+      ],
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "http://localhost:8080" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
       ]
     }
