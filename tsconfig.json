@@ -3,5 +3,6 @@
   "compilerOptions": {
     "outDir": "build",                        /* Redirect output structure to the directory. */
    },
-  "include": ["server.ts","routes/**/*"]
+  //"include": ["server.ts","routes/**/*"]
+  "include": ["api/**/*"]
 }
