@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "description": "Proxy that converts RSS to JSON",
-  "type": "module",
   "scripts": {
     "test": "echo hello"
   },
