@@ -9,7 +9,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://dan-mba.github.io" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://dan-mba.github.io,http://localhost:8080" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
       ]
     }
