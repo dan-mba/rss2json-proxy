@@ -4,5 +4,6 @@
     "outDir": "build",                        /* Redirect output structure to the directory. */
    },
   //"include": ["server.ts","routes/**/*"]
-  "include": ["api/**/*"]
+  "exclude": ["node_modules"],
+  "include": ["api/**/*.ts"],
 }
