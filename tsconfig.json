@@ -1,9 +1,11 @@
 {
   "extends": "@total-typescript/tsconfig/bundler/no-dom/app",
   "compilerOptions": {
-    "outDir": "build",                        /* Redirect output structure to the directory. */
-   },
+    "outDir": "build",  
+    "rootDir": ".",
+    "types": ["node"]
+  },
   //"include": ["server.ts","routes/**/*"]
-  "exclude": ["node_modules"],
-  "include": ["api/**/*.ts"],
+  "include": ["./api/**/*.ts"],
+  "exclude": ["./node_modules"],
 }

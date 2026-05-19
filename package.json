@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "xml2js": "^0.6.2"
   },
   "engines": {
