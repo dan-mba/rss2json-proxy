@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo hello",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "lint": "eslint ."
   },
   "dependencies": {
     "typescript": "^5.9.3",
@@ -17,10 +18,11 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/node": "^25.8.0",
     "@types/xml2js": "^0.4.14",
-    "eslint": "^9.39.4",
+    "eslint": "^10.4.0",
     "globals": "^17.6.0",
     "typescript-eslint": "^8.59.3"
   },
