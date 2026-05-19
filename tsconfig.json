@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "build",  
     "rootDir": ".",
-    "types": ["node"]
+    "types": ["node"],
+    "lib": ["ES2022","DOM"]
   },
   //"include": ["server.ts","routes/**/*"]
   "include": ["./api/**/*.ts"],
