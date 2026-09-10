@@ -20,7 +20,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@total-typescript/tsconfig": "^1.0.4",
-    "@types/node": "^26.4.1",
+    "@types/node": "^26.5.0",
     "@types/xml2js": "^0.4.14",
     "eslint": "^10.7.0",
     "globals": "^17.12.0",
